@@ -1,3 +1,4 @@
+// 20:52
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
@@ -18,6 +19,9 @@ function App() {
       });
   }, []);
 
+  const date = new Date(parseInt(latest.updated));
+  const lastUpdated = date.toString();
+
   return (
     <div>
       <CardDeck>
@@ -32,7 +36,7 @@ function App() {
             <Card.Text>{latest.cases}</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <small>Last updated 3 mins ago</small>
+            <small>Last updated {lastUpdated}</small>
           </Card.Footer>
         </Card>
         <Card
@@ -46,7 +50,7 @@ function App() {
             <Card.Text>{latest.deaths}</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <small>Last updated 3 mins ago</small>
+            <small>Last updated {lastUpdated}</small>
           </Card.Footer>
         </Card>
         <Card
@@ -60,7 +64,7 @@ function App() {
             <Card.Text>{latest.recovered}</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <small>Last updated 3 mins ago</small>
+            <small>Last updated {lastUpdated}</small>
           </Card.Footer>
         </Card>
       </CardDeck>
