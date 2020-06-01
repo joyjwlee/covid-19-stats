@@ -7,7 +7,12 @@ function App() {
   return (
     <div>
       <CardDeck>
-        <Card bg="secondary" text="white" className="text-center">
+        <Card
+          bg="secondary"
+          text="white"
+          className="text-center"
+          style={{ margin: "10px" }}
+        >
           <Card.Body>
             <Card.Title>Cases</Card.Title>
             <Card.Text>100</Card.Text>
@@ -16,7 +21,12 @@ function App() {
             <small>Last updated 3 mins ago</small>
           </Card.Footer>
         </Card>
-        <Card bg="danger" text="white" className="text-center">
+        <Card
+          bg="danger"
+          text="white"
+          className="text-center"
+          style={{ margin: "10px" }}
+        >
           <Card.Body>
             <Card.Title>Deaths</Card.Title>
             <Card.Text>0</Card.Text>
@@ -25,7 +35,12 @@ function App() {
             <small>Last updated 3 mins ago</small>
           </Card.Footer>
         </Card>
-        <Card bg="success" text="white" className="text-center">
+        <Card
+          bg="success"
+          text="white"
+          className="text-center"
+          style={{ margin: "10px" }}
+        >
           <Card.Body>
             <Card.Title>Recovered</Card.Title>
             <Card.Text>99</Card.Text>
