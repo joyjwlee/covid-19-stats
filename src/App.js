@@ -39,10 +39,9 @@ function App() {
   const date = new Date(parseInt(latest.updated));
   const lastUpdated = date.toString();
 
-  // put lowercase filter later
   const filterCountries = results.filter((item) => {
     return searchCountries !== ""
-      ? item.country.includes(searchCountries)
+      ? item.country.toLowerCase().includes(searchCountries.toLowerCase())
       : item;
   });
 
