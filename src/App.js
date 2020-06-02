@@ -6,6 +6,7 @@ import axios from "axios";
 import Columns from "react-columns";
 import Form from "react-bootstrap/Form";
 import ReactGA from "react-ga";
+import NumberFormat from "react-number-format";
 
 function App() {
   const [latest, setLatest] = useState([]);
@@ -111,7 +112,12 @@ function App() {
         >
           <Card.Body>
             <Card.Title>Cases</Card.Title>
-            <Card.Text>{latest.cases}</Card.Text>
+            {/* <Card.Text>{latest.cases}</Card.Text> */}
+            <NumberFormat
+              value={latest.cases}
+              displayType={"text"}
+              thousandSeparator={true}
+            />
           </Card.Body>
           <Card.Footer>
             <small>Last updated - {lastUpdated}</small>
@@ -125,7 +131,12 @@ function App() {
         >
           <Card.Body>
             <Card.Title>Deaths</Card.Title>
-            <Card.Text>{latest.deaths}</Card.Text>
+            {/* <Card.Text>{latest.deaths}</Card.Text> */}
+            <NumberFormat
+              value={latest.deaths}
+              displayType={"text"}
+              thousandSeparator={true}
+            />
           </Card.Body>
           <Card.Footer>
             <small>Last updated - {lastUpdated}</small>
@@ -139,7 +150,12 @@ function App() {
         >
           <Card.Body>
             <Card.Title>Recovered</Card.Title>
-            <Card.Text>{latest.recovered}</Card.Text>
+            {/* <Card.Text>{latest.recovered}</Card.Text> */}
+            <NumberFormat
+              value={latest.recovered}
+              displayType={"text"}
+              thousandSeparator={true}
+            />
           </Card.Body>
           <Card.Footer>
             <small>Last updated - {lastUpdated}</small>
