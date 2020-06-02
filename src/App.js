@@ -14,8 +14,8 @@ function App() {
   useEffect(() => {
     axios
       .all([
-        axios.get("https://disease.sh/v2/all"),
-        axios.get("https://disease.sh/v2/countries"),
+        axios.get("https://corona.lmao.ninja/v2/all"), // https://disease.sh/v2/all
+        axios.get("https://corona.lmao.ninja/v2/countries"), // https://disease.sh/v2/countries
       ])
       .then((reponseArr) => {
         setLatest(reponseArr[0].data);
