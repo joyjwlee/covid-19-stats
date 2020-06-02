@@ -1,4 +1,3 @@
-// 20:52
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
@@ -80,6 +79,9 @@ function App() {
 
   return (
     <div>
+      <br />
+      <h2 style={{ textAlign: "center" }}>COVID-19 Real-Time Updates</h2>
+      <br />
       <CardDeck>
         <Card
           bg="secondary"
@@ -124,6 +126,8 @@ function App() {
           </Card.Footer>
         </Card>
       </CardDeck>
+
+      <br />
 
       <Form>
         <Form.Group controlId="formGroupSearch">
