@@ -6,10 +6,13 @@ function Nav() {
   return (
     <nav>
       <Link style={{ color: "white", textDecoration: "none" }} to="/">
-        <div>Home</div>
+        <div style={{ fontSize: "30px" }}>🌎</div>
       </Link>
       <ul className="nav-links">
-        <Link style={{ color: "white", textDecoration: "none" }} to="/about">
+        <Link
+          style={{ color: "white", textDecoration: "none", marginTop: "10px" }}
+          to="/about"
+        >
           <li>About</li>
         </Link>
       </ul>

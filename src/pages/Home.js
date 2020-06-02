@@ -7,6 +7,7 @@ import Columns from "react-columns";
 import Form from "react-bootstrap/Form";
 import ReactGA from "react-ga";
 import NumberFormat from "react-number-format";
+import ReactToolTip from "react-tooltip";
 import RingLoader from "react-spinners/RingLoader";
 
 function Home() {
@@ -107,8 +108,16 @@ function Home() {
         <RingLoader size={50} color={"green"} loading={loading} />
       </div>
       <br />
-      <h2 style={{ textAlign: "center" }}>COVID-19 Live Updates</h2>
-      <h4 style={{ textAlign: "center" }}>Made by Jaewon Lee</h4>
+      <h2
+        data-tip="Last modified date: 2 June 2020"
+        style={{ textAlign: "center" }}
+      >
+        COVID-19 Live Updates
+      </h2>
+      <h5 data-tip="the one and only" style={{ textAlign: "center" }}>
+        Made by Jaewon Lee
+      </h5>
+      <ReactToolTip effect="solid" />
       <br />
       <CardDeck>
         <Card

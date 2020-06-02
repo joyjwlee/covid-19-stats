@@ -5,7 +5,7 @@ function About() {
     <div
       style={{
         backgroundColor: "white",
-        height: "100vh",
+        height: "90vh",
         textAlign: "center",
       }}
     >
@@ -28,7 +28,7 @@ function About() {
           backgroundColor: "grey",
           color: "white",
           margin: "20px",
-          borderRadius: "20px,",
+          borderRadius: "20px",
         }}
       >
         <h4>Who Built This Website?</h4>
@@ -56,6 +56,20 @@ function About() {
             here
           </a>
           .
+        </div>
+        <br />
+        <h4>Special thank you to:</h4>
+        <div style={{ fontSize: "20px" }}>
+          <dl>
+            <li>Mr. Holm for one amazing year of computer science.</li>
+            <li>
+              Hong Ly for the amazing guidance. His GitHub can be found{" "}
+              <a href="https://github.com/lyhd" target="_blank">
+                here
+              </a>
+              .
+            </li>
+          </dl>
         </div>
       </div>
     </div>
