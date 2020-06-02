@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import Columns from "react-columns";
 import Form from "react-bootstrap/Form";
+import ReactGA from "react-ga";
 
 function App() {
   const [latest, setLatest] = useState([]);
@@ -12,6 +13,9 @@ function App() {
   const [searchCountries, setSearchCountries] = useState("");
 
   useEffect(() => {
+    ReactGA.initialize("UA-168262485-1");
+    ReactGA.pageview(window.location.pathname + window.location.search);
+
     axios
       .all([
         axios.get("https://corona.lmao.ninja/v2/all"), // https://disease.sh/v2/all
@@ -85,6 +89,14 @@ function App() {
     },
   ];
 
+  const HandleSearchBar = () => {
+    ReactGA.event({
+      category: "Search bar",
+      action: "Click on search bar",
+      label: "HOME_PAGE",
+    });
+  };
+
   return (
     <div>
       <br />
@@ -145,6 +157,7 @@ function App() {
             type="text"
             placeholder="Country Name"
             onChange={(e) => setSearchCountries(e.target.value)}
+            onClick={HandleSearchBar}
           />
         </Form.Group>
       </Form>
