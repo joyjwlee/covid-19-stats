@@ -4,16 +4,28 @@ import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import CardColumns from "react-bootstrap/CardColumns";
 
 function App() {
-  const [latest, setLatest] = useState("");
+  const [latest, setLatest] = useState([]);
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://disease.sh/v2/all")
-      .then((res) => {
-        setLatest(res.data);
+      .all([
+        axios.get("https://disease.sh/v2/all"),
+        axios.get("https://disease.sh/v2/countries"),
+      ])
+      .then((reponseArr) => {
+        setLatest(reponseArr[0].data);
+        setResults(reponseArr[1].data);
       })
+      /*
+      .then(latest, countries => {
+        setLatest(latest.data);
+        console.log(countries.data);
+      })
+      */
       .catch((err) => {
         console.log(err);
       });
@@ -21,6 +33,30 @@ function App() {
 
   const date = new Date(parseInt(latest.updated));
   const lastUpdated = date.toString();
+
+  const countries = results.map((data, i) => {
+    return (
+      <Card
+        key={i}
+        bg="light"
+        text="dark"
+        className="text-center"
+        style={{ margin: "10px" }}
+      >
+        <Card.Img variant="top" src={data.countryInfo.flag} />
+        <Card.Body>
+          <Card.Title>{data.country}</Card.Title>
+          <Card.Text>Cases - {data.cases}</Card.Text>
+          <Card.Text>Active - {data.active}</Card.Text>
+          <Card.Text>Recovered - {data.recovered}</Card.Text>
+          <Card.Text>Deaths - {data.deaths}</Card.Text>
+          <Card.Text>Critical - {data.critical}</Card.Text>
+          <Card.Text>Today's Cases - {data.todayCases}</Card.Text>
+          <Card.Text>Today's Deaths - {data.todayDeaths}</Card.Text>
+        </Card.Body>
+      </Card>
+    );
+  });
 
   return (
     <div>
@@ -68,6 +104,7 @@ function App() {
           </Card.Footer>
         </Card>
       </CardDeck>
+      <CardColumns>{countries}</CardColumns>
     </div>
   );
 }
