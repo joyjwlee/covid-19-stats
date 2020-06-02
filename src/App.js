@@ -4,11 +4,13 @@ import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import CardColumns from "react-bootstrap/CardColumns";
+import Columns from "react-columns";
+import Form from "react-bootstrap/Form";
 
 function App() {
   const [latest, setLatest] = useState([]);
   const [results, setResults] = useState([]);
+  const [searchCountries, setSearchCountries] = useState("");
 
   useEffect(() => {
     axios
@@ -34,7 +36,14 @@ function App() {
   const date = new Date(parseInt(latest.updated));
   const lastUpdated = date.toString();
 
-  const countries = results.map((data, i) => {
+  // put lowercase filter later
+  const filterCountries = results.filter((item) => {
+    return searchCountries !== ""
+      ? item.country.includes(searchCountries)
+      : item;
+  });
+
+  const countries = filterCountries.map((data, i) => {
     return (
       <Card
         key={i}
@@ -57,6 +66,17 @@ function App() {
       </Card>
     );
   });
+
+  var queries = [
+    {
+      columns: 2,
+      query: "min-width: 500px",
+    },
+    {
+      columns: 3,
+      query: "min-width: 1000px",
+    },
+  ];
 
   return (
     <div>
@@ -104,7 +124,19 @@ function App() {
           </Card.Footer>
         </Card>
       </CardDeck>
-      <CardColumns>{countries}</CardColumns>
+
+      <Form>
+        <Form.Group controlId="formGroupSearch">
+          <Form.Label>Search For a Country</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Country Name"
+            onChange={(e) => setSearchCountries(e.target.value)}
+          />
+        </Form.Group>
+      </Form>
+
+      <Columns queries={queries}>{countries}</Columns>
     </div>
   );
 }
