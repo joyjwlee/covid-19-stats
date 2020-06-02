@@ -6,7 +6,7 @@ function Nav() {
   return (
     <nav>
       <Link style={{ color: "white", textDecoration: "none" }} to="/">
-        <div>Logo</div>
+        <div>Home</div>
       </Link>
       <ul className="nav-links">
         <Link style={{ color: "white", textDecoration: "none" }} to="/about">

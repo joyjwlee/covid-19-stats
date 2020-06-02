@@ -7,11 +7,13 @@ import Columns from "react-columns";
 import Form from "react-bootstrap/Form";
 import ReactGA from "react-ga";
 import NumberFormat from "react-number-format";
+import RingLoader from "react-spinners/RingLoader";
 
 function Home() {
   const [latest, setLatest] = useState([]);
   const [results, setResults] = useState([]);
   const [searchCountries, setSearchCountries] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     ReactGA.initialize("UA-168262485-1");
@@ -25,6 +27,7 @@ function Home() {
       .then((reponseArr) => {
         setLatest(reponseArr[0].data);
         setResults(reponseArr[1].data);
+        setLoading(false);
       })
       /*
       .then(latest, countries => {
@@ -99,6 +102,10 @@ function Home() {
 
   return (
     <div>
+      <br />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <RingLoader size={50} color={"green"} loading={loading} />
+      </div>
       <br />
       <h2 style={{ textAlign: "center" }}>COVID-19 Live Updates</h2>
       <h4 style={{ textAlign: "center" }}>Made by Jaewon Lee</h4>
