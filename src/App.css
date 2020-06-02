@@ -10,3 +10,11 @@ nav {
   background: #231f20;
   color: white;
 }
+
+.nav-links {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
