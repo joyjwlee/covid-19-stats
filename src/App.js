@@ -89,6 +89,7 @@ function App() {
     <div>
       <br />
       <h2 style={{ textAlign: "center" }}>COVID-19 Real-Time Updates</h2>
+      <h5 style={{ textAlign: "center" }}>Made by Jaewon Lee</h5>
       <br />
       <CardDeck>
         <Card
