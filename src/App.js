@@ -43,6 +43,9 @@ function App() {
   });
 
   const countries = filterCountries.map((data, i) => {
+    const countryDate = new Date(parseInt(data.updated));
+    const countryLastUpdated = countryDate.toString();
+
     return (
       <Card
         key={i}
@@ -62,6 +65,11 @@ function App() {
           <Card.Text>Today's Cases - {data.todayCases}</Card.Text>
           <Card.Text>Today's Deaths - {data.todayDeaths}</Card.Text>
         </Card.Body>
+        <Card.Footer>
+          <small>
+            {data.country} last updated - {countryLastUpdated}
+          </small>
+        </Card.Footer>
       </Card>
     );
   });
@@ -94,7 +102,7 @@ function App() {
             <Card.Text>{latest.cases}</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <small>Last updated {lastUpdated}</small>
+            <small>Last updated - {lastUpdated}</small>
           </Card.Footer>
         </Card>
         <Card
@@ -108,7 +116,7 @@ function App() {
             <Card.Text>{latest.deaths}</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <small>Last updated {lastUpdated}</small>
+            <small>Last updated - {lastUpdated}</small>
           </Card.Footer>
         </Card>
         <Card
@@ -122,7 +130,7 @@ function App() {
             <Card.Text>{latest.recovered}</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <small>Last updated {lastUpdated}</small>
+            <small>Last updated - {lastUpdated}</small>
           </Card.Footer>
         </Card>
       </CardDeck>
