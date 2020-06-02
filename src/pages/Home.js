@@ -9,12 +9,15 @@ import ReactGA from "react-ga";
 import NumberFormat from "react-number-format";
 import ReactToolTip from "react-tooltip";
 import RingLoader from "react-spinners/RingLoader";
+import Toggle from "react-toggle";
+import "react-toggle/style.css";
 
 function Home() {
   const [latest, setLatest] = useState([]);
   const [results, setResults] = useState([]);
   const [searchCountries, setSearchCountries] = useState("");
   const [loading, setLoading] = useState(true);
+  const [darkTheme, setDarkTheme] = useState(false);
 
   useEffect(() => {
     ReactGA.initialize("UA-168262485-1");
@@ -57,8 +60,8 @@ function Home() {
     return (
       <Card
         key={i}
-        bg="light"
-        text="dark"
+        bg={darkTheme ? "dark" : "light"}
+        text={darkTheme ? "light" : "dark"}
         className="text-center"
         style={{ margin: "10px" }}
       >
@@ -101,8 +104,17 @@ function Home() {
     });
   };
 
+  const handleDarkThemeChange = () => {
+    setDarkTheme(!darkTheme);
+  };
+
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: darkTheme ? "black" : "white",
+        color: darkTheme ? "white" : "black",
+      }}
+    >
       <br />
       <div style={{ display: "flex", justifyContent: "center" }}>
         <RingLoader size={50} color={"green"} loading={loading} />
@@ -118,6 +130,17 @@ function Home() {
         Made by Jaewon Lee
       </h5>
       <ReactToolTip effect="solid" />
+      <br />
+      <div style={{ textAlign: "center" }}>
+        <Toggle
+          defaultChecked={false}
+          icons={{
+            checked: "🌙",
+            unchecked: "☀️",
+          }}
+          onChange={handleDarkThemeChange}
+        />
+      </div>
       <br />
       <CardDeck>
         <Card
@@ -183,10 +206,11 @@ function Home() {
 
       <Form>
         <Form.Group controlId="formGroupSearch">
-          <Form.Label>Search For a Country</Form.Label>
+          {/* <Form.Label>Search For a Country</Form.Label> */}
           <Form.Control
             type="text"
-            placeholder="Country Name"
+            // placeholder="Country Name"
+            placeholder="Search For a Country"
             onChange={(e) => setSearchCountries(e.target.value)}
             onClick={HandleSearchBar}
           />
