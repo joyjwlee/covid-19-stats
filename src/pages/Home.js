@@ -126,7 +126,7 @@ function Home() {
       >
         COVID-19 Live Updates
       </h2>
-      <h5 data-tip="the one and only" style={{ textAlign: "center" }}>
+      <h5 data-tip="with guidance from Hong Ly" style={{ textAlign: "center" }}>
         Made by Jaewon Lee
       </h5>
       <ReactToolTip effect="solid" />
