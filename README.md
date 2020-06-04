@@ -4,6 +4,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## COVID-19 Live Updates Webpage
+
+The webpage is responsive and automatically updates itself
+Click [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -11,7 +16,8 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+CLick [here](https://covid-19-live.ml/) to view it in the browser.<br />
+Otherwise, paste the following link: [https://covid-19-live.ml/](https://covid-19-live.ml/)
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
