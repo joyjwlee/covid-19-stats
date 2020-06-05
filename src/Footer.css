@@ -1,0 +1,18 @@
+.smoothScroll {
+  text-decoration: none;
+  font-family: Segoe UI;
+  margin: 24px;
+}
+.title {
+  text-decoration: none;
+  font-family: Segoe UI;
+  margin: 24px;
+}
+.content {
+  margin-top: 100%;
+  margin-bottom: 100%;
+}
+small {
+  margin-left: 24px;
+  color: gray;
+}

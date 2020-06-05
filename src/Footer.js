@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./Footer.css";
 import { Link } from "react-router-dom";
 import $ from "jquery";
 
@@ -30,9 +30,12 @@ function Footer() {
 
   return (
     <nav>
-      <a class="smoothScroll">Click to go up</a>
+      <a class="smoothScroll" href="#top" id="bottom">
+        ⬆️
+      </a>
+
       <Link style={{ color: "white", textDecoration: "none" }} to="/">
-        <div style={{ fontSize: "30px" }}>⬆️</div>
+        <div style={{ fontSize: "30px" }}></div>
       </Link>
       <ul className="nav-links">
         <Link

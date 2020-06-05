@@ -121,6 +121,7 @@ function Home() {
       </div>
       <br />
       <h2
+        id="top"
         data-tip="Last modified date: 2 June 2020"
         style={{ textAlign: "center" }}
       >
