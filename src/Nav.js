@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Nav() {
   return (
-    <nav>
+    <nav id="top">
       <Link style={{ color: "white", textDecoration: "none" }} to="/">
         <div style={{ fontSize: "30px" }}>🌎</div>
       </Link>
