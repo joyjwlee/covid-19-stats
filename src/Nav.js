@@ -10,7 +10,23 @@ function Nav() {
       </Link>
       <ul className="nav-links">
         <Link
-          style={{ color: "white", textDecoration: "none", marginTop: "10px" }}
+          style={{
+            color: "white",
+            textDecoration: "none",
+            marginTop: "10px",
+            marginRight: "50px",
+          }}
+          to="/"
+        >
+          <li>yeet</li>
+        </Link>
+        <Link
+          style={{
+            color: "white",
+            textDecoration: "none",
+            marginTop: "10px",
+            marginRight: "50px",
+          }}
           to="/about"
         >
           <li>About</li>
