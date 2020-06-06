@@ -16,9 +16,9 @@ function Nav() {
             marginTop: "10px",
             marginRight: "50px",
           }}
-          to="/"
+          to="/graph"
         >
-          <li>yeet</li>
+          <li>Graph</li>
         </Link>
         <Link
           style={{
